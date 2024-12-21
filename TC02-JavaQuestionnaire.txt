@@ -1,0 +1,98 @@
+*********************CORE JAVA******************
+-OOPs Principles - Encapsulation, Abstraction, Polymorphism, Inheritance
+-Classes, Objects
+-Interface vs Abstract Class
+-If we can create the constructor for Abstract class, then why we can't create the object of Abstract class?
+-What is Interface default method and why it is introduced?  
+-Can overloading be done in derived(child) class. 
+-Hash map internal working enhancement in Java 1.8?
+-String operations questions
+-Exception Handling alongwith hierarchy
+-Collection Framework
+-Employee class how to store unique object in Set and Map.
+-what is generic class and its example?
+-Which map you should use to have the insertion order preserved?
+-What is the optimal way to find the second max value from the array?
+-Sort array which includes 0 & 1 without using Collections.sort()?
+-What is the contract between hashcode and equals method?
+-Difference between comparabale and comparator?
+-Internal working of hashmap, concurrent hashmap, arraylist, linkedlist,set?
+-Difference between Hashmap and hashtable?
+-Can we store null key in hashmap?
+-What is concurrent modification exception & how we can resolve this?
+-What is fail-fast and fail-safe ?
+-What is the use of volatile keyword?
+
+**********************************JAVA 8****************************
+-Java 8 New features
+-Lambda Expression, Fuctional Interfaces, Stream APIs, Marker Interface, Predicate, DateTime API, Optional
+-Why default method was introduced in Java 8?
+-What will happen if we provided null value in predicate?
+-Which Functional interface is used internally by map() method of stream api?
+
+***************************Java Programs*******************************
+-Program to get all employees whose salary >5000 and convert the result in Map using streams?
+-Get the IT department Employees from Employees list using Stream API 
+-Get the Employees with respect to department, where departments are IT, HR, Security. Don't use Stream API!
+-java 8 stream api group by department and sort by age in Employee class.
+
+
+******************************JUnit & Patterns***************************
+-Mock and Inject mock?
+-How to write JUnit for private methods?
+-Which design patterns use used? 
+-Singleton design pattern and how to make it thread safe
+
+**************************Multithreading*********************************
+-Mulithreading 
+-What are the different states in lifecycle of thread?
+-how to create Thread using thread class and Runnable Interface
+-synchronized block, synchronized method
+-What is java concurrency API?
+-Executor class
+-why we call start() on thread object
+-type of thread lock
+
+******************************DB Questions*****************************************
+-Find the name of employee of second max salary from the employee table
+-different type of index
+-Email validation with sql queries
+-What are Joins? And types of Joins?
+-Remove duplicate from table with sql queries
+-database trigger
+
+***********************************Spring/SpringBoot*******************************
+Spring/Spring Boot
+-By how many ways you can create Spring Boot Project?
+-What is the use of @SpringBootApplication annotation?
+-Workflow of springboot application using example?
+-how to consume XML/json from Spring boot without code changes in spring boot
+-Benefit of SpringBoot?
+-bean lifecycle
+-What are the different types of annotations you have useed?
+-How can we handle exceptions globally in a spring boot application?
+-What is the use of multiple properties files in spring boot?
+-How can we do caching in Springboot?
+-How can we configure swagger in spring boot?
+-What are synchronous and asynchronous calls in spring boot?
+-How to call external API?
+-How to implement spring security in microservice
+-Spring boot actuator
+-Create database connection using spring boot
+-How to use 2 db in same project.
+-Profiling in spring
+-Spring AOP
+-Spring MVC workflow
+-How can you build & deploy your application locally?
+
+***********************************Microservices*******************************
+-What is microservice architecture?
+-What is difference between monolithic & microservice architecture
+-What are the different ways to call APIs within a microservices architecture?
+-What is APIGateway, Service Discovery,Eurerka?
+-If API gateway is down then how the microservice request will be fulfilled?
+-What is fault tolerance? How can we handle this using hystrix?
+-Some middleware services
+-Linux command
+-Word count from file using Linux commands
+-MQ/Solace/Kafka

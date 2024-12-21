@@ -1,0 +1,12 @@
+ITVSDP-SVC vulnerabilities
+
+files modified
+1) DemoApplicationTests.java: 2 changes : "sandbox", empty method implementation : throw new UnsupportedOperationException();
+2) ToolChainAttributeService.java : TOOL_CREDENTIAL_ID
+3) SusOpsService.java : "perc", "msTeams" **DOUBT, case literal/constant
+
+4) ReportsService.java : Error Message==>
+5) PipelineService.java : statusStrLowerCase, categoryStr, toolNameStr
+6) PipelineAutoDiscoveryService.java : tool jenkins, tokenStr, toolldref, jenkinsjoburl, 
+7) ManageToolChainService.java : 
+8) ItvsdpService.java : 

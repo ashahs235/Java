@@ -1,0 +1,147 @@
+IBM Devops Commander : Create Toolchain, pipeline
+
+deploy : 3CPU, 8GB ram
+
+IBM Devops Commander is a container based application : can be deployed in any platform which supports kubernetes
+3.11 & 4.3 versions are supported : independent of platform wherever kubernetes 1.1v supports, 6Cs
+continuous planning - jira, development - github, integration -jenkins, deployment - argo cd, monitoring -instana, feedback - process, compliance - security - twistlock -sonar
+
+helm : configuration for an application - storing configuration as a code 
+
+install tools : container, IAC, Scripts
+
+doc/dc-helm charts
+
+UI - reactjs, svc - java, ansible scripts - core, database - mysql, keycloak - authorization
+
+helm 
+
+3 types of deployments : 22:30
+
+oracle pwd : @$#@Aaemps9612345
+keycloak tutorial 
+basic CICD for devops
+
+eval $(ssh-agent)
+ssh-keygen
+Enter file in which to save the key (/c/Users/AshaSunagar/.ssh/id_rsa): /c/Users/AshaSunagar/Desktop/DevSecOps/key
+
+cat key.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCn1rYb0E9OYLYFPGLkPrvdEEZrow7XwUDxKdvYQUMVAcuG5s7UwGD9YRRAH4UQa6j7eHFY6lU88z+5zeqOUmyLTqGye2xxe4QBrh6PY5XJOIw4GThI6mmKzxAhoZcsuk4doSQjC6ev2e0z2+tK52xEZAZa+KArjoZNPLZKhrrmuAr5o7RxbhIDlVghw3Ya3trCuQuAxlxrFVl6RRlYBNhGBChRdLYNTQPs/L7nIzCTn+s5NnaprWfu5eDh3Q3HZhAQicKKbau/BNM4e3WSThLLoihvQabCdHl+si91Ki2P4hQ3IVPFaWWNGCjKO2KZ6GMmR32615jc8qRPCEq+6adyZHy6IJzAvc7NlVvW6DezJ6lQNss83EsTU4/QLzDknfvc9DA7URrIRUSFnQ/qdeXcNAOiezZipQOLySKnvMC6mfLdpJioQtNSkkcbx+TYg9Y86B/3T8xqzvaFZ+gubTb2y/jpQr81J7/Bdhd1Y8FxNzb7OgUgBW0oqfdjNhmen20= AzureAD+AshaSunagar@LAPTOP-CSP0I8EU
+
+ssh-add /c/Users/AshaSunagar/Desktop/DevSecOps/key
+
+Eclipse installation : https://www.youtube.com/watch?v=as55KTM6h7I (Amit thinks) : install eclipse in C drive, workspace (where projects are created) can be any file location
+
+dc-mysql : localhost
+changing port to 3307 from 3306
+added oc shift in C drive, set path in envt var with ;
+
+keycloak tutorials 
+https://www.youtube.com/watch?v=35bflT_zxXA&list=PLRTM7OTAxy3OcmFEZeIcRgyYBjFR9yNyT
+
+git commit from eclipse
+git status
+git add .
+git commit -m "major vulnerabilities fixed jan_19_1"
+git commit -m "poi-ooxml"
+
+git checkout -b dev-asha
+git checkout dev-asha
+
+git push
+git push --set-upstream origin dev-asha
+git push -f origin dev-icte-keycloak
+
+git push -f origin dev-base-rbac
+(suggested)
+
+hint: core.useBuiltinFSMonitor will be deprecated soon; use core.fsmonitor instead
+hint: Disable this message with "git config advice.useCoreFSMonitorConfig false"
+[dev 58e98391] sonar fixes-1
+ 5 files changed, 40 insertions(+), 9 deletions(-)
+
+AzureAD+AshaSunagar@LAPTOP-CSP0I8EU MINGW64 ~/Desktop/DevSecOps/DC_GitHub_Clones/dc2-service (dev)
+$ 
+Switched to a new branch 'dev-asha'
+
+AzureAD+AshaSunagar@LAPTOP-CSP0I8EU MINGW64 ~/Desktop/DevSecOps/DC_GitHub_Clones/dc2-service (dev-asha)
+$ 
+fatal: The current branch dev-asha has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+https://www.youtube.com/results?search_query=spring+boot+crud+operations+
+https://www.youtube.com/watch?v=8TEAycT5HfY
+Springboot with mysql : https://www.youtube.com/watch?v=voA01jXkXtk
+https://www.youtube.com/watch?v=aaKTOkiSfJE, https://www.youtube.com/watch?v=wYyDwyvLg68, https://www.youtube.com/watch?v=Z-aH3OP3FUo
+https://www.youtube.com/@LearnCodeWithDurgesh/featured
+https://www.youtube.com/watch?v=R76S0tfv36w
+https://www.youtube.com/watch?v=IucFDX3RO9U
+Springboot with html/db : https://www.youtube.com/watch?v=GMNGPry979k, https://www.youtube.com/watch?v=msj3kLOLC4Q
+Spring Boot With MongoDB CRUD Example | Java Techie : https://www.youtube.com/watch?v=k5PeywcbVYc, https://www.youtube.com/watch?v=qVNOw9TWwxo
+
+Spring Boot Simple Project step by step using Mysql Database : https://www.youtube.com/watch?v=foARzSz_1WU, mysql : https://www.youtube.com/watch?v=voA01jXkXtk
+
+Spring Framework - API Validation| Validation Framework | @Valid, @Validated, @NotNull : https://www.youtube.com/watch?v=fwFFlxDUD0A
+
+https://www.youtube.com/watch?v=VR1zoNomG3w project
+Springboot detail java guides MySQL workbench https://www.youtube.com/watch?v=jj2rNQuLEbg&list=PLGRDMO4rOGcOKUURLsVMKZbCZhZJNtEwW&index=2
+LEETCODE https://www.youtube.com/watch?v=cORK0YESg9A&list=PL_6klLfS1WqF1n0GbPCqk0rPDFAu1dzXC
+banking project https://www.youtube.com/watch?v=CeL5CmLLhuA&list=PLoYPuzsyna1ltgberKUu2gLtiZYJFFZIJ
+
+java multi threading https://www.youtube.com/watch?v=0nDYk8sV_jQ
+
+java udemy spring full https://ibm-learning.udemy.com/course/spring-5-with-spring-boot-2/learn/lecture/35568712#overview
+
+Daemon https://www.youtube.com/watch?v=kOEmsqk-Wkg
+
+oc login --token=sha256~y25gX_RP0LgOxu_COHu3Dmc9l-GcJxKQ49uKIQxP8kA --server=https://c115-e.us-south.containers.cloud.ibm.com:30388
+
+@Autowired
+	public static ItvsdpService itvs;
+	public static void main(String[] args) {
+		//SpringApplication.run(DemoApplication.class, args);
+		
+		System.out.println("hi Asha");
+		itvs.getOrgDataDemo();
+
+mongodb://root:passw0rd@localhost:27017/?authMechanism=DEFAULT&authSource=admin
+http://localhost:8080/svc/org/fieldlist/tenant/asha_tenant/
+
+http://localhost:8080/svc/org/listUserOrgs/tenant/soc
+
+keycloak
+http://localhost:8080/svc/rbac/userPermissions/tenant/ibm_consulting
+
+http://localhost:8080/svc/rbac/roles/tenant/ibm_consulting
+
+http://localhost:8080/svc/itvsdp/create/tenant/asha_tenant
+
+http://localhost:8080/svc/org/list/application/app1
+
+http://localhost:8080/svc/org/list/tenant/Demo org
+
+
+
+https://icte-ui-icpsa-dev.aiops-ri1-1639397388-f72ef11f3ab089a8c677044eb28292cd-0000.eu-de.containers.appdomain.cloud/svc/itvsdp/create/tenant/ibmconsulting
+
+
+
+
+https://icte-dev.edst.ibm.com/svc/org/listUserOrgs/tenant/asha_tenant
+
+http://localhost:8080/svc/susops/application/tenant/ibm_consulting?orgIdref=64620ff8ca4fc540b26a35b3&application=Application_1
+http://localhost:8080/svc/susops/toolchain/tenant/ibm_consulting?orgIdref=64620ff8ca4fc540b26a35b3&application=Application_1
+
+toolset creation : url, credentials, encoded from ui into db, calls POST API, encryption mechanism fernet (js, java, python),
+fernet pkg is vulnerable : 
+
+create toolset 
+productmaster db list : tools icons list
+
+
+
+
+
+
+

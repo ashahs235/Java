@@ -1,0 +1,118 @@
+1) Instead of closing costly resource in finally block, we can pass parameter to try block
+try (FileInputStream inputStream = new FileInputStream("susops/addingimagewithinferenceslide.pptx")) 
+
+2) Enum (naming convention ApplicationProperties.java)
+	public enum ApplicationProperties {
+    		INSTANCE;
+-> how to fetch from enum : char[] passPhrase = ApplicationProperties.INSTANCE.getdc2ImportCACertPassPhrase().toCharArray();
+
+3) Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.
+
+ public void doSomethingElse() {
+  throw new UnsupportedOperationException();
+}
+
+4) switch case value takes only String literal or numerical, not any declared variable
+
+5) instead of genric Exception : remove throws.. , all exceptions suggested
+    throws NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException,
+    		InvalidAlgorithmParameterException, InvalidKeyException, IllegalBlockSizeException, 
+    		BadPaddingException
+
+6) logger.info(exception + e.getMessage());
+logger.error("Exception: ", e);
+
+***********************************************************
+7) catch (IOException | InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.
+
+ans : 
+
+try{
+    //some code
+} catch (InterruptedException ie) {
+    logger.error("InterruptedException: ", ie);
+    Thread.currentThread().interrupt();
+} catch (ExecutionException ee) {
+    logger.error("ExecutionException: ",ee);
+}
+
+Usually, when a thread is interrupted, whoever is interrupting the thread, wants the thread to exit what it's currently doing.
+
+However, make sure that you do NOT multi-catch:
+
+catch (InterruptedException | ExecutionException e) {     
+  logger.error("An error has occurred: ", e);
+  Thread.currentThread().interrupt();
+}
+We do not want ExecutionException to be "re-interrupted".
+
+********************************************************************
+
+8) if (newtenantlist != null && newtenantlist.size() > 0) {
+                    if (!newtenantlist.contains(tenantdb.get("_id").toString())) {
+
+ if ((newtenantlist != null && newtenantlist.size() > 0) &&
+                    (!newtenantlist.contains(tenantdb.get("_id").toString())))
+
+9) Document newPayload = new Document(); 
+Remove this useless assignment to local variable "newPayload".
+Document newPayload;
+
+==================================================================================
+
+10) COGNITIVE CODE COMPLEXITY
+
+if (payloadTools != null) {
+            ToolProperty instanaTool = payloadTools.getInstana();
+            if (instanaTool != null) {
+                tools.append("instana", convertToolToDocument(instanaTool));
+            }
+            ToolProperty argocdTool = payloadTools.getArgocd();
+            if (argocdTool != null) {
+                tools.append("argocd", convertToolToDocument(argocdTool));
+            }
+            ToolProperty servicenowTool = payloadTools.getServicenow();
+            if (servicenowTool != null) {
+                tools.append("servicenow", convertToolToDocument(servicenowTool));
+            }
+            ToolProperty githubTool = payloadTools.getGithub();
+            if (githubTool != null) {
+                tools.append("github", convertToolToDocument(githubTool));
+            }
+            ToolProperty gitlabTool = payloadTools.getGitlab();
+            if (gitlabTool != null) {
+                tools.append("gitlab", convertToolToDocument(gitlabTool));
+            }
+            ToolProperty jiraTool = payloadTools.getJira();
+            if (jiraTool != null) {
+                tools.append("jira", convertToolToDocument(jiraTool));
+            }
+            ToolProperty sonarqubeTool = payloadTools.getSonarqube();
+            if (sonarqubeTool != null) {
+                tools.append("sonarqube", convertToolToDocument(sonarqubeTool));
+            }
+            ToolProperty jenkinsTool = payloadTools.getJenkins();
+            if (jenkinsTool != null) {
+                tools.append("jenkins", convertToolToDocument(jenkinsTool));
+            }
+        }
+
+CHATGPT
+
+if (payloadTools != null) {
+    // Define an array of tool names
+    String[] toolNames = {"instana", "argocd", "servicenow", "github", "gitlab", "jira", "sonarqube", "jenkins"};
+
+    // Iterate over each tool name
+    for (String toolName : toolNames) {
+        ToolProperty tool = payloadTools.getToolByName(toolName);
+        if (tool != null) {
+            // Append the tool to the tools document
+            tools.append(toolName, convertToolToDocument(tool));
+        }
+    }
+}

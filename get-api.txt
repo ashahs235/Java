@@ -1,0 +1,194 @@
+  @GetMapping("/user-info/tenant/{realm}")
+    @CrossOrigin
+    @Operation(summary = "Get all the user Organization")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "The request has succeeded", content = {
+                    @Content(mediaType = "application/json")}),
+            @ApiResponse(responseCode = "204", description = "Get user Organization failed", content = {
+                    @Content(mediaType = "application/json")}),
+            @ApiResponse(responseCode = "400", description = "Bad Request", content = {
+                    @Content(mediaType = "application/json")}),
+            @ApiResponse(responseCode = "500", description = "Page Not found", content = @Content),
+    })
+
+    public ResponseEntity <Document> getUsersData(@PathVariable("realm") String tenant) {
+        Document response = new Document();
+
+        try {
+            response = service.getUserInfo();
+        } catch (CustomException e) {
+            StackTraceElement[] elements = e.getStackTrace();
+            logger.info(exception + e.getMessage() + elements[0] + elements[1]);
+            throw new CustomException(CustomErrorCodeMsg.NULL_DATA);
+        }
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+}
+
+
+
+service
+
+public Document getUserInfo() {
+        Document currentUser = new Document();
+        Set<String> realmRoles = getDecyptedToken().getRealmAccess().getRoles();
+
+        Map<String, Object> groupsMap = getDecyptedToken().getOtherClaims();
+        String groupsData = groupsMap.get("groups").toString();
+
+        List<String> targetGroups = Arrays.asList(groupsData.replace("[", "").replace("]", "").split(", "));
+        Map<String, Access> clients = getDecyptedToken().getResourceAccess();
+
+        List<Map<String, Object>> orgs = new ArrayList<>(); // List to hold organization data
+
+        String displayRole = "";
+        for (Map.Entry<String, Access> entry : clients.entrySet()) {
+            String key = entry.getKey();
+            Access value = entry.getValue();
+            Set<String> roles = value.getRoles(); // Assuming Access class has a method getRoles()
+
+            if (targetGroups.contains(key)) {
+                // Create a map to represent organization data
+                List<String> orgRoles = new ArrayList<>(roles);
+                Map<String, Object> orgData = new HashMap<>();
+                orgData.put("name", key); // Organization name
+                orgData.put("roles", orgRoles); // Organization roles
+                if (realmRoles.contains(Constants.REALM_ROLE_GUEST_ADMIN)) {
+                    displayRole = "Guest";
+                }
+                if (orgRoles.contains(Constants.REALM_ROLE_ORG_USER)) {
+                    displayRole = "Org User";
+                }
+                if (orgRoles.contains(Constants.REALM_ROLE_ORG_ADMIN)) {
+                    displayRole = "Org Admin";
+                }
+                currentUser.put("orgdisplayRole", displayRole);
+                orgs.add(orgData); // Add organization data to the list
+            }
+        }
+        // Add the list of organization data to the currentUser map under the key "orgs"
+        currentUser.put("orgs", orgs);
+
+        if (realmRoles.contains(Constants.REALM_ROLE_GUEST_ADMIN)) {
+            displayRole = "Guest";
+        }
+        if (realmRoles.contains(Constants.REALM_ROLE_TENANT_ADMIN)) {
+            displayRole = "tenantAdmin";
+        }
+        if (realmRoles.contains(Constants.REALM_ROLE_PRODUCT_ADMIN)) {
+            displayRole = "productAdmin";
+        }
+        currentUser.put("realmdisplayRole", displayRole);
+
+        AccessToken access = getDecyptedToken();
+        String userEmail = access.getEmail();
+        String userFirstname = access.getGivenName();
+        String userLastname = access.getFamilyName();
+        currentUser.put("email", userEmail);
+        currentUser.put("fname", userFirstname);
+        currentUser.put("lname", userLastname);
+        currentUser.put("realmRoles", realmRoles);
+        currentUser.put("groups", groupsData);
+        currentUser.put("clients", clients);
+        return currentUser;
+    }
+
+o/p
+
+
+{
+  "orgdisplayRole": "Org Admin",
+  "orgs": [
+    {
+      "roles": [
+        "orgUser",
+        "orgAdmin"
+      ],
+      "name": "default-client"
+    },
+    {
+      "roles": [
+        "Org User",
+        "Org Admin"
+      ],
+      "name": "Demo org"
+    }
+  ],
+  "realmdisplayRole": "productAdmin",
+  "email": "vsmadmin@default.com",
+  "fname": "vsmadmin",
+  "lname": "vsmadmin",
+  "realmRoles": [
+    "offline_access",
+    "Guest",
+    "uma_authorization",
+    "productAdmin"
+  ],
+  "groups": "[Demo org, ajaytest1, default-client, joshtest1, may2, trialorg]",
+  "clients": {
+    "default-client": {
+      "roles": [
+        "orgUser",
+        "orgAdmin"
+      ],
+      "verify_caller": null
+    },
+    "realm-management": {
+      "roles": [
+        "view-identity-providers",
+        "view-realm",
+        "manage-identity-providers",
+        "impersonation",
+        "realm-admin",
+        "create-client",
+        "manage-users",
+        "query-realms",
+        "view-authorization",
+        "query-clients",
+        "query-users",
+        "manage-events",
+        "manage-realm",
+        "view-events",
+        "view-users",
+        "view-clients",
+        "manage-authorization",
+        "manage-clients",
+        "query-groups"
+      ],
+      "verify_caller": null
+    },
+    "Demo org": {
+      "roles": [
+        "Org User",
+        "Org Admin"
+      ],
+      "verify_caller": null
+    },
+    "account": {
+      "roles": [
+        "manage-account",
+        "manage-account-links",
+        "view-profile"
+      ],
+      "verify_caller": null
+    }
+  }
+}
+
+
+===========================
+Map<String, Object> groupsMap = getDecyptedToken().getOtherClaims();
+		String groupsData = groupsMap.get("groups").toString();
+		Optional<String> optgrp = Optional.ofNullable()(groupsData);
+
+if (optgrp.isPresent())
+	    {
+	    	currentUser.put("groups", groupsData);
+	    }
+	    else
+	    {
+	    	System.out.println("user doesn't contain groups");
+	    }
+
+

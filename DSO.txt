@@ -1,0 +1,116 @@
+https://ibm.webex.com/meet/asha.sunagar
+asha.sunagar@ibm.com
+@$#@Aaemps96123458
+
+under 503
+work : https://jsw.ibm.com/browse/ICTE-872
+https://ibm-learning.udemy.com/course/spring-boot-tutorial-for-beginners/
+
+jira : https://jsw.ibm.com/browse/ICTE-592
+
+https://ibm.webex.com/meet/hpramod
+https://ibm.webex.com/meet/aparna.venkatraman
+
+https://chebz162229098.sl2469408.sl.dst.ibm.com/CHR/landingPage/employee
+https://ibm.biz/chr_app
+
+
+Openshift:
+to access : https://w3.ibm.com/#/support/article/setup_ibmid_2fa/isv
+cloud.ibm.com
+https://console-openshift-console.it-value-stream-platform-7e2996fc95fd6eb4a4c7a63aa3e73699-0000.us-south.containers.appdomain.cloud/dashboards
+https://console-openshift-console.it-value-stream-platform-7e2996fc95fd6eb4a4c7a63aa3e73699-0000.us-south.containers.appdomain.cloud/
+oc port-forward svc/icte-mongodb 27017:27017 -n icte-dev
+
+oc port-forward svc/icte-mongodb 27017:27017 -n icpsa-icte-dev
+oc port-forward svc/icte-mongodb 27017:27017 -n icpsa-icte-test
+oc port-forward svc/icte-mongodb 27017:27017 -n prod-icte
+
+
+Sonarqube:
+https://gbssonar.edst.ibm.com/sonar/project/issues?resolved=false&severities=BLOCKER&id=dc2-service
+
+GitHub clones
+https://github.ibm.com/Innovation-Lab/dc2-service
+https://github.ibm.com/Innovation-Lab/itvsdp-svc/tree/alt-dev
+https://github.ibm.com/Innovation-Lab/icte-svc
+
+
+Clone non default branch : 
+git clone git@github.ibm.com:Innovation-Lab/itvsdp-svc.git -b icte-keycloak icte-keycloak
+git@github.ibm.com:Innovation-Lab/itvsdp-svc.git -b dev-base-rbac icte_dev_base_rbac
+git@github.ibm.com:Innovation-Lab/itvsdp-svc.git -b dev-base-twistlock
+
+GitLab
+https://gbsgit.edst.ibm.com/groups/DevOpsCommander/-/activity
+
+KeyCloak Dev envt
+https://icte-dev.edst.ibm.com/auth
+https://icte-test.edst.ibm.com/auth
+https://icte.edst.ibm.com/auth
+
+
+admin
+icte_@dmini$tr@t0r@2023
+
+ICTE
+https://icte-dev.edst.ibm.com
+https://icte.edst.ibm.com
+
+https://w3.ibm.com/w3publisher/icte/features
+https://gbssonar.edst.ibm.com/sonar/project/issues?resolved=false&severities=CRITICAL&id=dc2-itvsdpsvc
+
+DC
+https://gbssonar.edst.ibm.com/sonar/project/issues?resolved=false&severities=BLOCKER&id=dc2-service
+
+jenkins build
+https://gbsjenkins.edst.ibm.com/job/DevOpsCommander/view/ICTE/job/icte-dev-svc/
+https://gbsjenkins.edst.ibm.com/job/DevOpsCommander/view/ICTE-v2/job/icte2.0-svc/
+
+ICTE/ICPSA box : https://ibm.ent.box.com/folder/246406000775?s=qp211n1et37m52661e8c69759yop9pan&tc=collab-folder-invite-treatment-b
+
+sonar reports : 
+itvsdp svc, ui, bff
+chatops : msbot-teams : icte-vccmsbot, icte-msbot-slack
+
+recordings
+https://ibm.webex.com/recordingservice/sites/ibm/recording/playback/5d2cf78da870103cbb7f0272e92632b0     27jHH2em
+https://ibm.webex.com/recordingservice/sites/ibm/recording/playback/838c5c15a897103c82dd0e70c8dec03e
+5kFVpExb
+https://ibm.webex.com/recordingservice/sites/ibm/recording/playback/5eac6fb0a7ca103cab5f8a1832f5f54f
+cChnRmU3
+https://ibm.webex.com/recordingservice/sites/ibm/recording/playback/cc8bdd23a7c6103caffcdec1eb6fa9c8
+tTDZmkY8
+https://ibm.webex.com/recordingservice/sites/ibm/recording/playback/000f95cfa7b1103cbbee9a9ffc41eef2
+JwvY3e8M
+
+
+pmt : productmaster table
+smt : tenant (soc, pnc etc)
+document converted to hashmap, retrieve key value
+
+
+ICPSA
+https://icte-ui-icpsa-dev.aiops-ri1-1639397388-f72ef11f3ab089a8c677044eb28292cd-0000.eu-de.containers.appdomain.cloud/
+https://icte-ui-icpsa-dev.it-value-stream-platform-7e2996fc95fd6eb4a4c7a63aa3e73699-0000.us-south.containers.appdomain.cloud/
+https://icte-ui-icpsa-dev.it-value-stream-platform-7e2996fc95fd6eb4a4c7a63aa3e73699-0000.us-south.containers.appdomain.cloud/auth
+
+https://icte-ui-icpsa-dev.it-value-stream-platform-7e2996fc95fd6eb4a4c7a63aa3e73699-0000.us-south.containers.appdomain.cloud/#/mar29_public
+
+https://icte-ui-icpsa-dev.it-value-stream-platform-7e2996fc95fd6eb4a4c7a63aa3e73699-0000.us-south.containers.appdomain.cloud/auth/realms/mar29_public/protocol/openid-connect/auth?client_id=default-client&redirect_uri=https%3A%2F%2Ficte-ui-icpsa-dev.it-value-stream-platform-7e2996fc95fd6eb4a4c7a63aa3e73699-0000.us-south.containers.appdomain.cloud%2F%23%2Fmar29_public&state=2a6188b7-403f-442e-98f3-ff3ed80ced6f&response_mode=fragment&response_type=code&scope=openid&nonce=41b707d3-0791-4497-88f5-e278e48e3497&kc_idp_hint=oidc
+
+https://icte-ui-icpsa-dev.aiops-ri1-1639397388-f72ef11f3ab089a8c677044eb28292cd-0000.eu-de.containers.appdomain.cloud/auth
+
+https://console-openshift-console.aiops-ri1-1639397388-f72ef11f3ab089a8c677044eb28292cd-0000.eu-de.containers.appdomain.cloud/dashboards
+oc project dev-icte-2
+oc port-forward svc/icte-mongodb 27017:27017
+
+
+
+org list related rbac issue fixed- ICTE-916
+https://github.ibm.com/Innovation-Lab/itvsdp-svc/commit/0c053327d8963d3876f8271950a726e17d60867a
+
+https://icte-ui-icpsa-dev.it-value-stream-platform-7e2996fc95fd6eb4a4c7a63aa3e73699-0000.us-south.containers.appdomain.cloud/#/tenant/asha_private_tenant_mar21_new
+
+
+
