@@ -1,0 +1,696 @@
+*********************CORE JAVA******************
+-OOPs Principles - Encapsulation, Abstraction, Polymorphism, Inheritance
+-Classes, Objects
+-Interface vs Abstract Class
+-If we can create the constructor for Abstract class, then why we can't create the object of Abstract class?
+The main purpose of the constructor is to initialize the newly created object. In abstract class, we have an instance variable, abstract methods, and non-abstract methods. We need to initialize the non-abstract methods and instance variables, therefore abstract classes have a constructor.
+
+We cannot create an object of an abstract class in Java because it is an incomplete class that contains abstract methods without any implementation. Therefore, it cannot be instantiated directly.
+
+-What is Interface default method and why it is introduced? 
+The most important use of default methods in interfaces is to provide additional functionality to a given type without breaking down the implementing classes
+ 
+-Can overloading be done in derived(child) class. Yes
+class P {
+    public void hello() {}
+}
+
+class C extends P {
+    public void hello(String s) {}
+}
+
+Because when you extend a class, the subclass have all the methods defined by superclass. It is as if all the methods of superclass have been implemented by the subclass. That means the hello() method has been implemented by the class C as well. Now, you added a method in class C with different parameter (hello(String s)). That means, class C has two methods in all with same name but different parameters and that is "overloading".
+
+
+-Hash map internal working enhancement in Java 1.8?
+Java HashMap class implements the Map interface which allows us to store key and value pair, where keys should be unique. 
+0 to 15 bucket : each bucket is linked list : LL contains Node : N : key, value, hash, next
+Hashing collision : in a same bucket, many nodes : multiple key value pair, equals : content comparison, == : reference comparison
+enhancement done : initially hashmap is bucket : linkedlist, later Balanced tree mechanism : maintains balance between nodes
+Starting from Java 8, one optimization is built-in in HashMap: When buckets are getting too large, they're transformed into trees, instead of linked lists.
+
+In Hashmap one null key is allowed and multiple null values are allowed. Since hashcode of null is 0 so null key actually stored at index 0 in hashmap.
+null key is always at the beginning
+
+Can we have duplicate keys in map?
+No, a HashMap in Java cannot have duplicate keys. When a key-value pair is added to a HashMap , if the key already exists in the HashMap , then the old value associated with that key is replaced with the new value. On the other hand, HashMap can have duplicate values, but not necessarily with duplicate keys.
+
+-String operations questions
+-Exception Handling alongwith hierarchy
+-Collection Framework
+-Employee class how to store unique object in Set and Map.
+-what is generic class and its example?
+Generic classes encapsulate operations that are not specific to a particular data type. The most common use for generic classes is with collections like linked lists, hash tables, stacks, queues, trees, and so on.
+
+-Which map you should use to have the insertion order preserved? LinkedHashMap maintains insertion order in java : KV
+
+-What is the optimal way to find the second max value from the array?
+-Sort array which includes 0 & 1 without using Collections.sort()?
+
+-What is the contract between hashcode and equals method?
+The hashcode() method returns the same hash value when called on two objects, which are equal according to the equals() method. And if the objects are unequal, it usually returns different hash values.
+
+https://www.youtube.com/watch?v=-oafFAPgLao
+https://www.youtube.com/watch?v=CpVALR9HeTE
+
+
+-Difference between comparable and comparator?
+-Internal working of hashmap, concurrent hashmap, arraylist, linkedlist,set?
+
+The backing data structure of ArrayList is an array of Object class. When creating an ArrayList you can provide initial capacity then the array is declared with the given capacity. The default capacity value is 10.
+
+-Difference between Hashmap and hashtable? An enumeration (enum for short) in Java is a special data type which contains a set of predefined constants.
+
+-Can we store null key in hashmap? HashMap allows one null key and multiple null values.
+
+-What is concurrent modification exception & how we can resolve this?
+This exception occurs when an object is attempted to be modified concurrently without permission. For example, if a Collection is modified while a thread is traversing it using an Iterator , a ConcurrentModificationException is thrown from the Iterator.
+1. Instead of iterating over the collection class, we can iterate over the array. ...
+2. Another way can be locking the list by putting it in the synchronized block. ...
+3. JDK 1.5 or higher provides with ConcurrentHashMap and CopyOnWriteArrayList classes.
+
+
+
+-What is fail-fast and fail-safe ?
+The iterators can be either fail-safe or fail-fast. Fail-safe iterators means they will not throw any exception even if the collection is modified while iterating over it. Whereas Fail-fast iterators throw an exception(ConcurrentModificationException) if the collection is modified while iterating over it.
+
+-What is the use of volatile keyword?
+The volatile keyword in Java is used to indicate that a variable's value may be modified by multiple threads simultaneously. 
+
+**********************************JAVA 8****************************
+-Java 8 New features
+-Lambda Expression : A lambda expression is a short block of code which takes in parameters and returns a value. Lambda expressions are similar to methods, but they do not need a name and they can be implemented right in the body of a method.
+() -> System.out.println("Zero parameter lambda");
+(p) -> System.out.println("One parameter: " + p);
+
+ Functional Interfaces : An Interface that contains exactly one abstract method is known as functional interface. It can have any number of default, static methods but can contain only one abstract method. It can also declare methods of object class.
+Functional Interfaces introduced in Java 8 allow us to use a lambda expression to initiate the interface's method and avoid using lengthy codes for the anonymous class implementation. Various built-in interfaces were declared with @FunctionalInterface annotation and made functional from Java 8.
+The functional interface also known as Single Abstract Method Interface was introduced to facilitate Lambda functions. Since a lambda function can only provide the implementation for 1 method it is mandatory for the functional interface to have ONLY one abstract method.
+
+
+ Stream APIs : Stream API is a way to express and process collections of objects. Enable us to perform operations like filtering, mapping (doubling), reducing and sorting
+forEach() in Consumer interface (functional) : accept()
+
+ Marker Interface : A marker interface is an interface that doesn't have any methods or constants inside it. The Serializable and Cloneable interfaces are the example of marker interface. It is used to deliver type information at runtime to the JVM so that it can take some action based on the information received.
+
+Predicate, DateTime API, Optional
+
+Optional :
+Java introduced a new class Optional in jdk8. It is a public final class and used to deal with NullPointerException in Java application. You must import java.util package to use this class. It provides methods which are used to check the presence of value for particular variable.
+
+Predicate:
+It is a functional interface which represents a predicate (boolean-valued function) of one argument. It is defined in the java.util.function package and contains test() a functional method.
+
+
+-Why default method was introduced in Java 8?
+The default methods were introduced to provide backward compatibility so that existing interfaces can use the lambda expressions without implementing the methods in the implementation class. Default methods are also known as defender methods or virtual extension methods.
+
+-What will happen if we provided null value in predicate?
+-Which Functional interface is used internally by map() method of stream api?
+
+***************************Java Programs*******************************
+-Program to get all employees whose salary >5000 and convert the result in Map using streams?
+-Get the IT department Employees from Employees list using Stream API 
+-Get the Employees with respect to department, where departments are IT, HR, Security. Don't use Stream API!
+-java 8 stream api group by department and sort by age in Employee class.
+
+
+******************************JUnit & Patterns***************************
+-Mock and Inject mock?
+-How to write JUnit for private methods?
+-Which design patterns use used? 
+-Singleton design pattern and how to make it thread safe
+Singleton Pattern says that just"define a class that has only one instance and provides a global point of access to it inside private constructor". **
+
+**************************Multithreading*********************************
+-Mulithreading 
+-What are the different states in lifecycle of thread? New, Runnable, Running, Blocked/Waiting, Timed, and Terminated.
+-how to create Thread using thread class and Runnable Interface
+-synchronized block, synchronized method
+Synchronization in java is the capability to control the access of multiple threads to any shared resource. In the Multithreading concept, multiple threads try to access the shared resources at a time to produce inconsistent results.
+
+A Java synchronized block doesn't allow more than one JVM, to provide access control to a shared resource.
+The system performance may degrade because of the slower working of synchronized keyword.
+Java synchronized block is more efficient than Java synchronized method.
+
+Synchronized block is used to prevent multiple threads from executing a portion of a code in a method at the same point in time. On the other hand, synchronized method will prevent multiple threads from executing the entire method at the same point in time.
+
+-What is java concurrency API?
+-Executor class
+-why we call start() on thread object
+start. Causes this thread to begin execution; the Java Virtual Machine calls the run method of this thread. The result is that two threads are running concurrently: the current thread (which returns from the call to the start method) and the other thread (which executes its run method).
+
+-type of thread lock : https://www.geeksforgeeks.org/object-level-class-level-lock-java/
+
+Object-level lock: Every object in java has a unique lock. Whenever we are using a synchronized keyword, then only the lock concept will come into the picture. If a thread wants to execute then synchronized method on the given object. First, it has to get a lock-in that object. Once the thread got the lock then it is allowed to execute any "synchronized method" on that object. Once method execution completes automatically thread releases the lock. Acquiring and release lock internally is taken care of by JVM and the programmer is not responsible for these activities.
+
+Class level lock: Every class in Java has a unique lock which is nothing but a class level lock. If a thread wants to execute a "static synchronized method", then the thread requires a class level lock. Once a thread got the class level lock, then it is allowed to execute any static synchronized method of that class. Once method execution completes automatically thread releases the lock.
+
+******************************DB Questions*****************************************
+-Find the name of employee of second max salary from the employee table : SELECT MAX(SALARY) FROM Employee WHERE SALARY < (SELECT MAX(SALARY) FROM Employee);
+-different type of index
+Clustered Index 
+Non-Clustered Index 
+Column Store Index 
+Filtered Index 
+Hash Index 
+Unique Index 
+
+-Email validation with sql queries : SELECT email, email LIKE '%_@_%.__%' AS isValid FROM people;
+-What are Joins? And types of Joins?
+A JOIN clause is used to combine rows from two or more tables, based on a related column between them.
+
+-Remove duplicate from table with sql queries : By using the DISTINCT keyword, the GROUP BY clause, and the INNER JOIN statement
+-database trigger : like a Stored procedure
+
+***********************************Spring/SpringBoot*******************************
+Spring/Spring Boot
+
+-By how many ways you can create Spring Boot Project?
+Using Eclipse or any similar IDE and Maven simple project.
+Using Spring Tool Suite.
+
+-What is the use of @SpringBootApplication annotation?
+Spring Boot @SpringBootApplication annotation is used to mark a configuration class that declares one or more @Bean methods and also triggers auto-configuration and component scanning. It's same as declaring a class with @Configuration, @EnableAutoConfiguration and @ComponentScan annotations.
+@RestController. @PostMapping
+@SpringBootApplication Main class -- Controller -- Service Interface -- Service Implementation -- Repository Interface -- Database call
+@Component : this class has to create obj
+@Autowired : Autowiring feature of spring framework enables you to inject the object dependency implicitly. It internally uses setter or constructor injection.
+
+
+
+POST : posting a new data : secured
+GET : select
+PUT : update
+DELETE
+
+IOC container
+
+-Workflow of springboot application using example?
+Presentation Layer
+Business Layer
+Persistence Layer
+Database Layer
+
+-how to consume XML/json from Spring boot without code changes in spring boot
+
+-Benefit of SpringBoot?
+It reduces lots of development time and increases productivity. It avoids writing lots of boilerplate Code, Annotations and XML Configuration. It is very easy to integrate Spring Boot Application with its Spring Ecosystem like Spring JDBC, Spring ORM, Spring Data, Spring Security etc.
+
+-bean lifecycle
+
+
+-What are the different types of annotations you have used?
+@Autowired annotation is applied to the fields, setter methods, and constructors. It injects object dependency implicitly. We use @Autowired to mark the dependency that will be injected by the Spring container.
+
+-How can we handle exceptions globally in a spring boot application?
+if we want to handle any exception thrown throughout the application we can define a global exception handler class and annotate it with @ControllerAdvice.
+
+-What is the use of multiple properties files in spring boot?
+Using multiple application. properties files you can tell Spring-Boot with which environment the application should start. A good example is to configure two databases.
+
+-How can we do caching in Springboot?
+-How can we configure swagger in spring boot?
+-What are synchronous and asynchronous calls in spring boot?
+
+
+-How to call external API?
+-How to implement spring security in microservice
+-Spring boot actuator
+-Create database connection using spring boot : pom.xml, application.properties
+-How to use 2 db in same project.
+-Profiling in spring
+
+-Spring AOP : Spring's AOP framework helps us to implement these cross-cutting concerns for our web applications
+Aspect oriented programming(AOP) as the name suggests uses aspects in programming. It can be defined as the breaking of code into different modules, also known as modularisation, where the aspect is the key unit of modularity.
+
+-Spring MVC workflow : 1st controller, then model, then view
+-How can you build & deploy your application locally?
+
+***********************************Microservices*******************************
+-What is microservice architecture?
+-What is difference between monolithic & microservice architecture : A monolithic application is built as a single unified unit while a microservices architecture is a collection of smaller, independently deployable services
+
+-What are the different ways to call APIs within a microservices architecture?
+-What is APIGateway, Service Discovery,Eurerka?
+-If API gateway is down then how the microservice request will be fulfilled?
+-What is fault tolerance? How can we handle this using hystrix?
+-Some middleware services
+-Linux command
+-Word count from file using Linux commands : wc --char fixed.txt, cmd to find any word in a file : grep -i -r Oracle
+-MQ/Solace/Kafka
+
+===================================================================================
+
+Feedback
+
+A a = new B
+object 
+
+keyword transient
+
+func interface
+
+how to make a class immutable : final
+
+top 5 records
+
+SOAP : heavy
+REST : light weight
+
+mashalling unmarshalling
+
+1) core java collections treeset, set, list, map, concurrent modification exception
+
+Singleton design patterns : how to write singleton class, 2 design patterns
+
+immutable class : final
+
+java 8 : stream API, func interfaces, lamda
+
+multithreading : synchronised block/method difference
+
+basic func DB : 
+
+microservices : 
+
+Spring boot/Spring
+
+solid principles, method ref
+
+y one null in hashmap
+
+difference between compareTo & compare ()
+Comparable : compareTo() : DNSO, all wrapper classes & String class implement this interface
+Comparator : compare() : customised sorting order, equals(). Deeply looking, Collator & RuleBasedCollator implement this interface. compare() helps to sort 2nd digit : [31, 72, 43, 29]
+
+
+Spring Boot : upgraded version of Spring MVC where in built tomcat version 7 is already available. annotation based
+@Entity : to interact with databases
+
+-------------------------------------------------------------------
+public class Test
+{
+    public static void main(String args[]) 
+    { 
+        System.out.println(Test.test()); 
+    }
+
+    public static int test()
+    {
+        try {
+            return 1;
+        }  finally {  
+            
+            return 2;
+        }
+    }
+}
+o/p : 2, code ends after return stmt
+
+return type of lamda expression
+
+return type of map put
+
+how to add/fetch 
+Map <String> m1 = new MAP..
+m1.put("ASHA", "ABC); //getkey(), getvalue()
+
+
+--
+m1.put(fname, "Asha");
+m1.put(fname, "ABC");   //recent value is o/p
+https://www.youtube.com/watch?v=wIWjA-FfNMg
+
+hashset simplicode https://www.youtube.com/watch?v=eaa_tnJynWo
+hashmap https://www.youtube.com/watch?v=j4WMnRMIZNg
+
+Daemon thread https://www.youtube.com/watch?v=kOEmsqk-Wkg
+
+Multithreading example : https://www.youtube.com/watch?v=0nDYk8sV_jQ
+
+Stream API https://www.youtube.com/watch?v=DYyhFLC2eJ0
+
+@Postmapping, 
+
+
+@putmapping
+
+
+ISL
+try
+{
+throw java.lang.Exception;
+throw java.io.IOException;
+}
+catch(FileNotFoundException c)
+{
+	SOP(c);
+}
+catch(Exception e)
+{
+	SOP(e);
+}
+String strArr[] = {"a1", "a2", ...."a1000"};
+for(int i=1; i<=strArr.length; i++)
+{
+	SOP(strArr[i]+"--");
+}
+O/P : a1--a2--.....--a1000.
+
+----------------------------------------
+CRUD
+
+create database Spring;
+
+CREATE TABLE `Spring`.`emp_details` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NULL,
+  `salary` FLOAT NULL,
+  `designation` VARCHAR(45) NULL,
+   KEY (id));
+   
+   use Spring;
+   
+   
+   select * from emp_details;
+   
+   delete from emp_details where id=51;
+
+
+------------------------------------
+
+ENUM : special class 
+how to fetch : Enum.CONSTANT.method()
+
+q: can case value be a variable in switch statement java
+a : No variables: The case value in switch statement must be a literal or constant. Also, it must be of the same type as switch expression. No duplicates: No two cases in a switch statement should be of same value.
+
+
+
+https://ibm-learning.udemy.com/course/spring-5-with-spring-boot-2/learn/lecture/35531164#overview
+
+
+open api
+interceptor
+orm tools
+
+NBS : 
+
+
+if an interface has 5 methods & the class implementing it has provided implementation only for 3 methods, what about 2 methods
+ChatGPT
+In many object-oriented programming languages, if a class implements an interface but does not provide implementations for all the methods defined in that interface, the class will typically result in a compilation error. This is because the class is expected to provide concrete implementations for all methods declared in the interface to fulfill the contract specified by the interface.
+
+However, there are a few ways this situation might be handled depending on the language and its features:
+
+Abstract Class: If the class does not provide implementations for all methods, it can be declared as an abstract class. An abstract class can have both abstract methods (without implementation) and concrete methods (with implementation). Any class that extends this abstract class must then provide implementations for the remaining abstract methods.
+
+java
+Copy code
+interface MyInterface {
+    void method1();
+    void method2();
+    void method3();
+    void method4();
+    void method5();
+}
+
+abstract class MyClass implements MyInterface {
+    public void method1() {
+        // Implementation of method1
+    }
+
+    public void method2() {
+        // Implementation of method2
+    }
+
+    public void method3() {
+        // Implementation of method3
+    }
+
+    // method4() and method5() are not implemented
+}
+
+class ConcreteClass extends MyClass {
+    public void method4() {
+        // Implementation of method4
+    }
+
+    public void method5() {
+        // Implementation of method5
+    }
+}
+Default Methods: In some languages like Java 8 and later, interfaces can have default methods with implementations. This allows the interface to provide a default implementation, which can be overridden by the implementing class if needed.
+
+java
+Copy code
+interface MyInterface {
+    void method1();
+    void method2();
+    void method3();
+
+    default void method4() {
+        // Default implementation of method4
+    }
+
+    default void method5() {
+        // Default implementation of method5
+    }
+}
+
+class MyClass implements MyInterface {
+    public void method1() {
+        // Implementation of method1
+    }
+
+    public void method2() {
+        // Implementation of method2
+    }
+
+    public void method3() {
+        // Implementation of method3
+    }
+    
+    // method4() and method5() can use default implementations
+}
+Error or Exception: In some dynamic languages, if a method is called that has not been implemented, it may result in a runtime error or exception. The specifics will depend on how the language handles such situations.
+
+python
+Copy code
+from abc import ABC, abstractmethod
+
+class MyInterface(ABC):
+    @abstractmethod
+    def method1(self):
+        pass
+
+    @abstractmethod
+    def method2(self):
+        pass
+
+    @abstractmethod
+    def method3(self):
+        pass
+
+    @abstractmethod
+    def method4(self):
+        pass
+
+    @abstractmethod
+    def method5(self):
+        pass
+
+class MyClass(MyInterface):
+    def method1(self):
+        print("method1")
+
+    def method2(self):
+        print("method2")
+
+    def method3(self):
+        print("method3")
+
+    # method4 and method5 are not implemented
+
+# Trying to instantiate MyClass will raise an error
+my_class_instance = MyClass()
+In summary, the handling of unimplemented methods in a class implementing an interface varies by language, but typically results in a compile-time error, requires the class to be abstract, or uses default method implementations in the interface.
+
+=======================================================================================================================================
+
+MBRDI
+
+int a[] = [1, 2, 3, 4]
+int sum = 7 //add from the array to
+ make sum 7
+
+
+public class SumPairExample {
+    public static void main(String[] args) {
+        int[] a = {1, 2, 3, 4};
+        int targetSum = 7;
+
+        for (int i = 0; i < a.length; i++) {
+            for (int j = i + 1; j < a.length; j++) {
+                if (a[i] + a[j] == targetSum) {
+                    System.out.println("Pair found: " + a[i] + ", " + a[j]);
+                }
+            }
+        }
+    }
+}
+
+
+
+OR
+
+import java.util.HashSet;
+
+public class SumPairExample {
+    public static void main(String[] args) {
+        int[] a = {1, 2, 3, 4};
+        int targetSum = 7;
+        HashSet<Integer> seenNumbers = new HashSet<>();
+
+        for (int num : a) {
+            int complement = targetSum - num;
+            if (seenNumbers.contains(complement)) {
+                System.out.println("Pair found: " + num + ", " + complement);
+            }
+            seenNumbers.add(num);
+        }
+    }
+}
+
+
+========================================================================================================
+
+int a[] = {11, 23, 34, 56}; get only the first digit
+
+
+public class FirstDigitExample {
+    public static void main(String[] args) {
+        int[] a = {11, 23, 34, 56};
+
+        // Loop through each element in the array
+        for (int number : a) {
+            int firstDigit = getFirstDigit(number);
+            System.out.println("First digit of " + number + " is: " + firstDigit);
+        }
+    }
+
+    // Method to get the first digit of a number
+    public static int getFirstDigit(int number) {
+        // Continue dividing by 10 until number is a single digit
+        while (number >= 10) {
+            number /= 10;
+        }
+        return number;
+    }
+}
+
+
+
+==========================================================================================================
+
+if an interface has 5 methods & the class implementing it has provided implementation only for 3 methods, what about 2 methods
+
+
+interface MyInterface {
+    void method1();
+    void method2();
+    void method3();
+    void method4();
+    void method5();
+}
+
+abstract class MyClass implements MyInterface {
+    public void method1() {
+        // Implementation of method1
+    }
+
+    public void method2() {
+        // Implementation of method2
+    }
+
+    public void method3() {
+        // Implementation of method3
+    }
+
+    // method4() and method5() are not implemented
+}
+
+class ConcreteClass extends MyClass {
+    public void method4() {
+        // Implementation of method4
+    }
+
+    public void method5() {
+        // Implementation of method5
+    }
+}
+
+
+---------------
+
+interface MyInterface {
+    void method1();
+    void method2();
+    void method3();
+
+    default void method4() {
+        // Default implementation of method4
+    }
+
+    default void method5() {
+        // Default implementation of method5
+    }
+}
+
+class MyClass implements MyInterface {
+    public void method1() {
+        // Implementation of method1
+    }
+
+    public void method2() {
+        // Implementation of method2
+    }
+
+    public void method3() {
+        // Implementation of method3
+    }
+    
+    // method4() and method5() can use default implementations
+}
+
+MULTIPLE INHERITANCE PROBLEM SOLUTION WITH DEFAULT INTERFACES
+
+interface A {
+    default void display() {
+        System.out.println("Display from Interface A");
+    }
+}
+
+interface B {
+    default void display() {
+        System.out.println("Display from Interface B");
+    }
+}
+
+class MyClass implements A, B {
+    // Must resolve conflict between default methods
+    @Override
+    public void display() {
+        A.super.display();  // Calling A's default method
+        B.super.display();  // Calling B's default method
+    }
+}
+
+
+
+Coforge
+
+find the largest number in arraylist
+find the duplicates in arraylist
+
